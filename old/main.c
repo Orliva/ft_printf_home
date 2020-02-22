@@ -3,13 +3,12 @@
 int	main(void)
 {
 //	int a = 0;
-//	int b = 15;
+	int b = 15;
 //	int c = 200;
-//	printf("%+d\n", -123);
+	printf("%d\n", b);
 		///Проверить!!!!! "Процент в сер%едине слова"
 
 //	ft_printf("Собака сутулая ft_printf\n");
-	ft_printf("%d", 123);
 //	ft_printf("%++--  022.20hd ЕБАЛ В РОТ ХУЕТА","first");
 //	while (a < 49)
 //	{

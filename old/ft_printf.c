@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-/*
+
 static	unsigned int ft_strlen(const char *str)
 {
 	unsigned int i;
@@ -9,13 +9,13 @@ static	unsigned int ft_strlen(const char *str)
 		i++;
 	return (i);
 }
-*/
+
 static	char	*ft_strdup(const char *str)
 {
 	unsigned int i;
 	char	*new_str;
 
-	new_str = (char *)malloc(sizeof(char) * (ft_strlen((char *)str) + 1));
+	new_str = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
 	i = 0;
 	while (str[i])
 	{
