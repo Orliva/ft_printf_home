@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   help_func.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/26 17:09:56 by lulee             #+#    #+#             */
+/*   Updated: 2020/02/26 17:56:50 by lulee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf.h"
 
 void	ft_putstr_fd(char *print, t_param *param, unsigned int *all_len)
@@ -7,6 +19,7 @@ void	ft_putstr_fd(char *print, t_param *param, unsigned int *all_len)
 		write(param->fd, &*print++, 1);
 		(*all_len)++;
 	}
+	(*all_len)--;///////будет вычитать лишнюю единицу, если в *print 1 цифра
 }
 
 unsigned int count_num_min(unsigned long long int num, t_param *param)
@@ -25,7 +38,6 @@ unsigned int count_num_min(unsigned long long int num, t_param *param)
 		num /= cof;
 		count++;
 	}
-//	count++;
 	return (count);
 }
 
@@ -39,7 +51,6 @@ unsigned int count_num_pl(long long int num)
 		num /= 10;
 		count++;
 	}
-//	count++;
 	return (count);
 }
 

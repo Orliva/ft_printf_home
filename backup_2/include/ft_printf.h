@@ -41,6 +41,7 @@ typedef	struct	s_param
 	char	*mod; ////h, hh, l, ll
 	char	type; ///diouxX (h, hh, l, ll), f (l , L)
 	char	spesific_symb;
+	unsigned int	s_presit;
 
 }		t_param;
 
@@ -96,8 +97,8 @@ void	upper_case_pf(char *str);
 void	default_mod_fF(t_param *param, unsigned int *all_len, t_flags *flag);
 void	mall_width_fF(t_param *param, unsigned int len, t_flags *flag, t_pr *pr);
 int	is_dot(t_pr *pr);
-void	init_num_fF(t_pr *pr, unsigned int presition, double num);
 unsigned int mall_num(unsigned int pres, long long int int_part, char *str);
+void	init_num_fF_(t_pr *pr, unsigned int presition, double num);
 void    _is_sign_space_fF(t_pr *pr, t_param *param, t_flags *flag);
 void    _is_width_fF(t_pr *pr, t_param *param, t_flags *flag, unsigned int val);
 void    _is_presition_fF(char *print, t_param *param, unsigned int val);
@@ -105,5 +106,20 @@ void	final_print_fF(t_pr *pr, t_param *param, unsigned int *all_len, t_flags *fl
 void	left_pos_fF(t_pr *pr, t_param *param, t_flags *flag);
 void	right_pos_fF(t_pr *pr, t_param *param, t_flags *flag);
 unsigned int count_int_part(long long int int_part);
+
+//c_func
+void	c_func(t_param *param, unsigned int *all_len, t_flags *flag);
+//void	s_func(t_param *param, unsigned int *all_len, t_flags *flag);
+void	default_mod_c(t_param *param, unsigned int *all_len, t_flags *flag);
+void	init_num_c(t_flags *flag, t_param *param, unsigned int *all_len, unsigned char num);
+
+void	default_mod_s(t_param *param, unsigned int *all, t_flags *flag);
+void	init_num_s(t_flags *flag, t_param *param, unsigned int *all_len, char *num);
+
+void	p_func(t_param *param, unsigned int *all_len, t_flags *flag);
+void	default_mod_p(t_param *param, unsigned int *all_len, t_flags *flag);
+void	init_num_p(t_flags *flag, t_param *param, unsigned int *all_len, void *num);
+//init_num_cs();
+//void	default_mod_s(t_param *param, unsigned int *all_len, t_flags *flag);
 
 #endif

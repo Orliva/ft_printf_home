@@ -33,7 +33,7 @@ unsigned int mal_num(unsigned int pres, long long int int_part, t_pr *pr)
 	return (--len);
 }
 
-void	init_num_fF(t_pr *pr, unsigned int presition, double num)
+void	init_num_fF_(t_pr *pr, unsigned int presition, double num)
 {
 	unsigned long long int int_part;
 	unsigned int len;

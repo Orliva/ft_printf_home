@@ -44,7 +44,7 @@ void	left_pos(t_pr *pr, t_param *param, t_flags *flag)
 	{
 		if (flag->sharp == 1 && param->type == 'o')
 			param->width--;
-		if (flag->sharp == 1 && (param->type == 'x' || param->type == 'X') && param->width > 1)
+		if (flag->sharp == 1 && (param->type == 'x' || param->type == 'X' || param->type == 'p') && param->width > 1)
 			param->width -= 2;
 		_is_width(pr, param, flag, param->presition);
 	}

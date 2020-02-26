@@ -25,8 +25,6 @@ int	ft_printf(const char *format, ...)
 	param.dup_format = ft_strdup(format);
 	param.fd = 1;
 	va_start(param.arg, format);
-	/////////Функция которая смотри format на наличие специальных знаков
-	/////////Создать указатель на функцию, и передавать агрументы
 	while (*param.dup_format)
 	{
 		len++;
@@ -35,9 +33,7 @@ int	ft_printf(const char *format, ...)
 			if (init_param(&param, &len))
 //			printf(" fd = %d, flag = %s, width = %d, presition = %d,\nmod = %s, type = %c, spes_symb = %c\n", param.fd, param.flag, param.width, param.presition, param.mod,param.type, param.spesific_symb);
 				type_print(&param, &len);
-//			param.dup_format++;
 		}
-//		write(1, "end_%\n", 6);
 		if (*param.dup_format)
 		{
 			write(param.fd, param.dup_format, 1);
@@ -46,6 +42,6 @@ int	ft_printf(const char *format, ...)
 	}
 //	free_all(&param);
 	va_end(param.arg);
-	len--;/////Временное решение, где то лишний раз прибавляется *all_len
+//	len--;/////Временное решение, где то лишний раз прибавляется *all_len
 	return (len);
 }

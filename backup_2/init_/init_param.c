@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_param.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/26 17:12:44 by lulee             #+#    #+#             */
+/*   Updated: 2020/02/26 17:13:11 by lulee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf.h"
 
+////удалить free_all
 void	free_all(t_param *param)//////Обнулять len, width, presi и тд
 {
 	free(param->dup_format);
@@ -11,7 +24,7 @@ void	free_all(t_param *param)//////Обнулять len, width, presi и тд
 
 int	init_param(t_param *param, unsigned int *all_len)
 {
-        param->dup_format++;///if везде можно убрать если правильно фришить(printf.c)(после%)
+        param->dup_format++;
 	if (*param->dup_format && is_spesific_symb(param, all_len) == 1)
         {
                 is_flag(param);

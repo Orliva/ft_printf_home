@@ -10,9 +10,11 @@ int	main(void)
 
 //	ft_printf("Собака сутулая ft_printf\n");
 //	printf("%hd\n",
-	ft_printf("% 14.7f\n", (double)1);//);
+	void *p = NULL;
+	ft_printf("%-010.3s\n", p);//);
 //	printf("%hd\n",
-	printf("% 14.7f\n", (double)1);//);
+//	write(1, &p, 10);
+	printf("%-010.3s\n", p);//);
 //	ft_printf("%++--  022.20hd ЕБАЛ В РОТ ХУЕТА","first");
 //	while (a < 49)
 //	{

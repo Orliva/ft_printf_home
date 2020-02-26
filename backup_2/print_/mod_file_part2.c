@@ -73,12 +73,39 @@ void	ll_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
 		init_num_8(&pr, (unsigned long long int)var);
 	final_print(&pr, param, all_len, flag);
 }
-/*
-void	default_mod_c(t_param *param, unsigned int *all_len, t_flags *flag)
+
+void	default_mod_p(t_param *param, unsigned int *all_len, t_flags *flag)
 {
-	unsigned char var;
-	char symb;
-	///////
-	//etc
-	//////
-}*/
+	void	*var;
+	t_pr	pr;
+	char	tmp;
+
+	pr.sign = '+';
+	var = va_arg(param->arg, void *);
+	flag->plus = 0;
+	flag->space = 0;
+	flag->sharp = 1;
+	if (var)
+	{
+		pr.print = mall_width(param, count_num_min((unsigned long long int)var, param), flag, &pr);
+		init_num_16(&pr, (unsigned long long int)var);
+		final_print(&pr, param, all_len, flag);
+	}
+	else
+	{
+		tmp = flag->zero == 1 ? '0' : ' ';
+		while (param->width > 3 && tmp == ' ' && flag->minus == 0)
+		{
+			write(param->fd, &tmp, 1);
+			(*all_len)++;
+			param->width--;
+		}
+		*all_len += write(param->fd, "0x0", 3);
+		while (param->width > 3 && (tmp == '0' || flag->minus == 1))
+		{
+			write(param->fd, &tmp, 1);
+			(*all_len)++;
+			param->width--;
+		}
+	}
+}

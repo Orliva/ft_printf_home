@@ -4,7 +4,7 @@ void    _is_presition(char *print, t_param *param, t_flags *flag, unsigned int v
 {
         if (param->presition > 0 && (param->type == 'd' ||
         param->type == 'i' || param->type == 'o' ||
-        param->type == 'x' || param->type == 'X'))//////возможно для u(нужен тест)
+        param->type == 'x' || param->type == 'X' || param->type == 'p'))//////возможно для u(нужен тест)
                 flag->zero = 0;
 //	if (flag->sharp == 1 && (param->type == 'x' || param->type == 'X') && param->width >=2)
 		
@@ -22,7 +22,7 @@ void    _is_width(t_pr *pr, t_param *param, t_flags *flag, unsigned int val)
         char tmp;
 
         tmp = flag->zero == 1 ? '0' : ' ';
-	if (flag->sharp == 1 && (param->type == 'x' || param->type == 'X') && param->width > 1 && flag->zero == 1)
+	if (flag->sharp == 1 && (param->type == 'x' || param->type == 'X' || param->type == 'p') && param->width > 1 && flag->zero == 1)
 		param->width -= 2;
 //	if (flag->sharp == 1 && (param->type == 'x' || param->type == 'X') && param->width >= 2)
 //		param->width -= 2;
@@ -43,7 +43,7 @@ void    _is_width(t_pr *pr, t_param *param, t_flags *flag, unsigned int val)
 
 void    _is_sharp(char *print, t_param *param, t_flags *flag)
 {
-        if (flag->sharp == 1 && (param->type == 'x' || param->type == 'X'))
+        if (flag->sharp == 1 && (param->type == 'x' || param->type == 'X' || param->type == 'p'))
         {
 		if (param->width > 1)
 			param->width -= 2;
