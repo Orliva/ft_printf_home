@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "./include/ft_printf.h"
 
 int	main(void)
 {
@@ -9,8 +9,10 @@ int	main(void)
 		///Проверить!!!!! "Процент в сер%едине слова"
 
 //	ft_printf("Собака сутулая ft_printf\n");
-	ft_printf("qwe%-#10.6ospace\n", 123);////// + ' ' не должны работать с oxX и не робит #
-	printf("qwe%-#10.6ospace\n", 123);
+//	printf("%hd\n",
+	ft_printf("% 14.7f\n", (double)1);//);
+//	printf("%hd\n",
+	printf("% 14.7f\n", (double)1);//);
 //	ft_printf("%++--  022.20hd ЕБАЛ В РОТ ХУЕТА","first");
 //	while (a < 49)
 //	{

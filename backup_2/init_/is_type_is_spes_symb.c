@@ -1,14 +1,21 @@
-#include "../ft_printf.h"
+#include "../include/ft_printf.h"
 
 int	is_spesific_symb(t_param *param, unsigned int *all_len)
 {
-	if (*param->dup_format == '%')
+	char *tmp;
+
+	tmp = param->dup_format;
+	while (*tmp != '%' && *tmp) 
 	{
-		(*all_len)++;
-		write(param->fd, "%", 1);
-		param->dup_format++;
-		return (1);
+		if (*tmp == 'd' || *tmp == 'i' || *tmp == 'u' || *tmp == 'o' || *tmp == 'x' || *tmp == 'X' || *tmp == 'f')
+			return (1);
+		tmp++;
 	}
+	param->dup_format = tmp;
+	(*all_len)++;
+	write(param->fd, "%", 1);
+	if (*param->dup_format)
+		param->dup_format++;
 	return (0);
 }
 
@@ -23,6 +30,9 @@ void	is_type(t_param *param)
 		*param->dup_format == 'a' || *param->dup_format == 'A' ||
 		*param->dup_format == 'c' || *param->dup_format == 'p')
 		param->type = *param->dup_format;
+	if (param->presition == 0 && param->fF_presi != 1 &&
+		(param->type == 'f' || param->type == 'F'))
+		param->presition = 6;
 	param->dup_format++;
 }
 ////diuoxXfFeEgGaAcp

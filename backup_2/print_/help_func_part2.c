@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../include/ft_printf.h"
 
 void	help_init_(unsigned int count, char *tmp, t_pr *pr)
 {
@@ -34,6 +34,8 @@ void	init_num_16(t_pr *pr, unsigned long long int num)
 
 	if (!(pr->num = (char *)malloc(sizeof(char) * 1)))
 		ft_error_exit();
+	if (num == 0)
+		arg_is_zero(pr);
 	count = 1;
 	while (num)
 	{
@@ -41,18 +43,14 @@ void	init_num_16(t_pr *pr, unsigned long long int num)
 			ft_error_exit();
 		if (num % 16 < 10)
 		{
-//			write(1, "FIRST", 5);
 			help_init_(count, tmp, pr);
 			tmp[count - 1] = (num % 16) + 48;
-//			write(1, &tmp[count - 1], 1);
 			tmp[count] = '\0';
 		}
 		else
 		{
-//			write(1, "SECOND", 6);
 			help_init_(count, tmp, pr);
 			tmp[count - 1] = ft_letter((unsigned char)(num % 16));
-//			write(1, &tmp[count - 1], 1);
 			tmp[count] = '\0';
 		}
 		free(pr->num);
@@ -60,7 +58,6 @@ void	init_num_16(t_pr *pr, unsigned long long int num)
 		num /= 16;
 		count++;
 	}
-//	write(1, &*pr->num, 2);
 }
 
 void	init_num_8(t_pr *pr, unsigned long long num)
@@ -70,6 +67,8 @@ void	init_num_8(t_pr *pr, unsigned long long num)
 
 	if (!(pr->num = (char *)malloc(sizeof(char) * 1)))
 		ft_error_exit();
+	if (num == 0)
+		arg_is_zero(pr);
 	count = 1;
 	while (num)
 	{

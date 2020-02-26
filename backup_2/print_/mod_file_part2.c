@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../include/ft_printf.h"
 
 void	l_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 {
@@ -10,9 +10,10 @@ void	l_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 	pr.sign = '+';
 	if ((var = va_arg(param->arg, long int)) < 0)
 	{
-		len++;
+//		len++;
 		pr.sign = '-';
 		flag->plus = 0;
+		flag->space = 0;
 	}
 	pr.print = mall_width(param, (len += count_num_pl((long long int)var)), flag, &pr);
 	init_num_di(&pr, (long long int)var);
@@ -27,7 +28,12 @@ void	l_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
 	var = va_arg(param->arg, unsigned long int);
 	pr.sign = '+';
 	pr.print = mall_width(param, count_num_min((unsigned long long int)var, param), flag, &pr);
-	init_num_u(&pr, (unsigned long long int)var);
+	if (param->type == 'u')
+		init_num_u(&pr, (unsigned long long int)var);
+	if (param->type == 'x' || param->type == 'X')
+		init_num_16(&pr, (unsigned long long int)var);
+	if (param->type == 'o')
+		init_num_8(&pr, (unsigned long long int)var);
 	final_print(&pr, param, all_len, flag);
 }
 
@@ -41,9 +47,10 @@ void	ll_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 	pr.sign = '+';
 	if ((var = va_arg(param->arg, long long int)) < 0)
 	{
-		len++;
+//		len++;
 		pr.sign = '-';
 		flag->plus = 0;
+		flag->space = 0;
 	}
 	pr.print = mall_width(param, (len += count_num_pl((long long int)var)), flag, &pr);
 	init_num_di(&pr, (long long int)var);
@@ -58,7 +65,12 @@ void	ll_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
 	pr.sign = '+';
 	var = va_arg(param->arg, unsigned long long int);
 	pr.print = mall_width(param, count_num_min((unsigned long long int)var, param), flag, &pr);
-	init_num_u(&pr, (unsigned long long int)var);
+	if (param->type == 'u')
+		init_num_u(&pr, (unsigned long long int)var);
+	if (param->type == 'x' || param->type == 'X')
+		init_num_16(&pr, (unsigned long long int)var);
+	if (param->type == 'o')
+		init_num_8(&pr, (unsigned long long int)var);
 	final_print(&pr, param, all_len, flag);
 }
 /*

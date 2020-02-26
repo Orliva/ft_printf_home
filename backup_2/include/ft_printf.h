@@ -13,9 +13,10 @@
 
 typedef	struct	s_pr
 {
-	char *print;
-	char *num;
-	char sign;
+	char	*print;
+	char	*num;
+	char	sign;
+	int	dop_mem;
 }		t_pr;
 
 typedef	struct	s_flags
@@ -31,7 +32,7 @@ typedef	struct	s_param
 {
 	int	fd;
 	char	*dup_format;
-	char	*buff_dest;
+	unsigned int	fF_presi;
 	va_list	arg;
 	unsigned int	len;
 	char	*flag;
@@ -44,7 +45,7 @@ typedef	struct	s_param
 }		t_param;
 
 int	ft_printf(const char *format, ...);
-void	init_param(t_param *param, unsigned int *all_len);
+int	init_param(t_param *param, unsigned int *all_len);
 void	is_flag(t_param *param);
 void	is_width(t_param *param);
 void	is_presition(t_param *param);
@@ -59,18 +60,20 @@ void	free_all(t_param *param);
 
 void    di_func(t_param *param, unsigned int *all_len, t_flags *flag);
 void    ouxX_func(t_param *param, unsigned int *all_len, t_flags *flag);
-void    diouxX_print(t_param *param, unsigned int *all_len);
+void	fF_func(t_param *param, unsigned int *all_len, t_flags *flag);
+void    type_print(t_param *param, unsigned int *all_len);
 void    init_flag(t_param *param, t_flags *flag);
 void    final_print(t_pr *pr, t_param *param, unsigned int *all_len, t_flags *flag);
 void    left_pos(t_pr *pr, t_param *param, t_flags *flag);
 void    right_pos(t_pr *pr, t_param *param, t_flags *flag);
 void    _is_sign_space(t_pr *pr, t_param *param, t_flags *flag);
 void    _is_sharp(char *print, t_param *param, t_flags *flag);
-void    _is_width(char *print, t_param *param, t_flags *flag, unsigned int val);
+void    _is_width(t_pr *pr, t_param *param, t_flags *flag, unsigned int val);
 void    _is_presition(char *print, t_param *param, t_flags *flag, unsigned int val);
 void    ft_putstr_fd(char *print, t_param *param, unsigned int *all_len);
 unsigned int count_num_min(unsigned long long int num, t_param *param);
 unsigned int count_num_pl(long long int num);
+void	arg_is_zero(t_pr *pr);
 void    init_num_di(t_pr *pr, long long int var);
 void	init_num_16(t_pr *pr, unsigned long long int num);
 void	init_num_8(t_pr *pr, unsigned long long int num);
@@ -87,7 +90,20 @@ void    l_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag);
 void    l_mod_di(t_param *param, unsigned int *all_len, t_flags *flag);
 void    default_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag);
 void    default_mod_di(t_param *param, unsigned int *all_len, t_flags *flag);
-void    print_param(t_param *param, unsigned int *all_len);
+//void    print_param(t_param *param, unsigned int *all_len);
 void	upper_case_pf(char *str);
+
+void	default_mod_fF(t_param *param, unsigned int *all_len, t_flags *flag);
+void	mall_width_fF(t_param *param, unsigned int len, t_flags *flag, t_pr *pr);
+int	is_dot(t_pr *pr);
+void	init_num_fF(t_pr *pr, unsigned int presition, double num);
+unsigned int mall_num(unsigned int pres, long long int int_part, char *str);
+void    _is_sign_space_fF(t_pr *pr, t_param *param, t_flags *flag);
+void    _is_width_fF(t_pr *pr, t_param *param, t_flags *flag, unsigned int val);
+void    _is_presition_fF(char *print, t_param *param, unsigned int val);
+void	final_print_fF(t_pr *pr, t_param *param, unsigned int *all_len, t_flags *flag);
+void	left_pos_fF(t_pr *pr, t_param *param, t_flags *flag);
+void	right_pos_fF(t_pr *pr, t_param *param, t_flags *flag);
+unsigned int count_int_part(long long int int_part);
 
 #endif

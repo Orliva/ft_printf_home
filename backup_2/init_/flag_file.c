@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../include/ft_printf.h"
 
 void	ft_error_exit()
 {
@@ -32,9 +32,9 @@ void	is_flag(t_param *param)
 	if(!(param->flag = (char *)malloc(sizeof(char) * (len + 1))))
 		ft_error_exit();////no writed
 	*param->flag = '\0';
-	while (*param->dup_format && (*param->dup_format == '-' || *param->dup_format == '+' ||
-		*param->dup_format == ' ' || *param->dup_format == '0' ||
-		*param->dup_format == '#'))
+	while (*param->dup_format && (*param->dup_format == '-' ||
+		*param->dup_format == '+' || *param->dup_format == ' ' ||
+		*param->dup_format == '0' || *param->dup_format == '#'))
 	{
 		len++;
 		tmp = (char *)malloc(sizeof(char) * (len + 1));
