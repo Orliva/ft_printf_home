@@ -46,13 +46,13 @@ typedef	struct	s_param
 }		t_param;
 
 int	ft_printf(const char *format, ...);
-int	init_param(t_param *param, unsigned int *all_len);
+int	init_param(t_param *param);
 void	is_flag(t_param *param);
 void	is_width(t_param *param);
 void	is_presition(t_param *param);
 void	is_mod(t_param *param);
 void	is_type(t_param *param);
-int	is_spesific_symb(t_param *param, unsigned int *all_len);
+int	is_spesific_symb(t_param *param);
 
 int	compare(char *s1, char *s2);
 unsigned int	ft_strlen(char *str);

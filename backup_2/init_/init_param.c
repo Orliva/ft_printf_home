@@ -22,17 +22,17 @@ void	free_all(t_param *param)//////Обнулять len, width, presi и тд
 //	free(&param->spesific_symb);
 }
 
-int	init_param(t_param *param, unsigned int *all_len)
+int	init_param(t_param *param)
 {
-        param->dup_format++;
-	if (*param->dup_format && is_spesific_symb(param, all_len) == 1)
-        {
-                is_flag(param);
-                is_width(param);
-                is_presition(param);
-                is_mod(param);
-                is_type(param);
+	param->dup_format++;
+	if (*param->dup_format && is_spesific_symb(param) == 1)
+	{
+		is_flag(param);
+		is_width(param);
+		is_presition(param);
+		is_mod(param);
+		is_type(param);
 		return (1);
-        }
+	}
 	return (0);
 }

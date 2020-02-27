@@ -15,6 +15,7 @@ void	h_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 		flag->plus = 0;
 		flag->space = 0;
 	}
+//	printf("this is shrot_int_h%hd", var);
 	pr.print = mall_width(param, (len += count_num_pl((long long int)var)), flag, &pr);
 	init_num_di(&pr, (long long int)var);
 	final_print(&pr, param, all_len, flag);////another named func;
@@ -52,6 +53,7 @@ void	hh_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 		flag->plus = 0;
 		flag->space = 0;
 	}
+//	printf("this_is_hh_signed_mod %hhd\n", var);
 	pr.print = mall_width(param, (len += count_num_pl((long long int)var)), flag, &pr);
 	init_num_di(&pr, (long long int)var);
 	final_print(&pr, param, all_len, flag);

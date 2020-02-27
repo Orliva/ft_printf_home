@@ -76,6 +76,7 @@ void	default_mod_c(t_param *param, unsigned int *all_len, t_flags *flag)
 
 	var = (unsigned char)va_arg(param->arg, unsigned int);
 	init_num_c(flag, param, all_len, var);
+	(*all_len)--;
 }
 
 void	default_mod_s(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -84,8 +85,10 @@ void	default_mod_s(t_param *param, unsigned int *all_len, t_flags *flag)
 //	char	tmp;
 
 	var = va_arg(param->arg, char *);
-	if (var)
-		init_num_s(flag, param, all_len, var);
+	if (param->s_presit == 0)
+		param->presition = ft_strlen(var);
+	init_num_s(flag, param, all_len, var);
+	(*all_len)--;
 //	else
 //	{
 //		tmp = flag->zero == 1 ? '0' : ' ';

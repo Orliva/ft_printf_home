@@ -14,6 +14,7 @@
 
 void	di_func(t_param *param, unsigned int *all_len, t_flags *flag)
 {
+//	printf("param->mod %s\n", param->mod);
 	if (choice_mod(param) == NONE_MODE)
 		default_mod_di(param, all_len, flag);
 	if (choice_mod(param) == H)

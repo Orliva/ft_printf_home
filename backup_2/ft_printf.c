@@ -30,7 +30,7 @@ int	ft_printf(const char *format, ...)
 		len++;
 		while (*param.dup_format == '%')
 		{
-			if (init_param(&param, &len))
+			if (init_param(&param))
 //			printf(" fd = %d, flag = %s, width = %d, presition = %d,\nmod = %s, type = %c, spes_symb = %c\n", param.fd, param.flag, param.width, param.presition, param.mod,param.type, param.spesific_symb);
 				type_print(&param, &len);
 		}

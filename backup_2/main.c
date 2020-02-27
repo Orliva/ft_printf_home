@@ -10,11 +10,12 @@ int	main(void)
 
 //	ft_printf("Собака сутулая ft_printf\n");
 //	printf("%hd\n",
-	void *p = NULL;
-	ft_printf("%-010.3s\n", p);//);
+//	char *p = "this";
+//	printf("%d\n", compare("h", "hh"));
+	ft_printf("%5%\n", 128);//);
 //	printf("%hd\n",
 //	write(1, &p, 10);
-	printf("%-010.3s\n", p);//);
+	printf("%5%\n", 128);//);
 //	ft_printf("%++--  022.20hd ЕБАЛ В РОТ ХУЕТА","first");
 //	while (a < 49)
 //	{

@@ -17,7 +17,7 @@ static	void	pf_atoi(t_param *param)
 	int	n;
 
 	n = 10;
-	param->fF_presi = 0;
+///	param->fF_presi = 0;////
 	while (*param->dup_format >= '0' && *param->dup_format <= '9')
 	{
 		param->fF_presi = 1;
@@ -30,6 +30,7 @@ void	is_presition(t_param *param)
 {
 	param->presition = 0;
 	param->s_presit = 0;
+	param->fF_presi = 0;//////поменял вечером, возможно вернуть назад!
 	if (*param->dup_format >= '0' && *param->dup_format <= '9')
 		pf_atoi(param);
 }

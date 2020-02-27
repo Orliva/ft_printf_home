@@ -32,7 +32,8 @@ static	void	rewrite_flag(t_param *param, char *tmp)
 	free(param->flag);
 }
 
-void	is_flag(t_param *param)
+void	is_flag(t_param *param)///////Возможно тут утечка?
+				////Вроде все ок, но возможно поменять tmp и param->flag
 {
 	int len;
 	char *tmp;

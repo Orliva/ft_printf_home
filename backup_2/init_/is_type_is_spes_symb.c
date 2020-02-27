@@ -12,7 +12,7 @@
 
 #include "../include/ft_printf.h"
 
-int	is_spesific_symb(t_param *param, unsigned int *all_len)
+int	is_spesific_symb(t_param *param)
 {
 	char *tmp;
 
@@ -26,7 +26,6 @@ int	is_spesific_symb(t_param *param, unsigned int *all_len)
 		tmp++;
 	}
 	param->dup_format = tmp;
-	(*all_len)++;
 	write(param->fd, "%", 1);
 	if (*param->dup_format)
 		param->dup_format++;
