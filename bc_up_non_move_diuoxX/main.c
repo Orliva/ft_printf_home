@@ -12,7 +12,7 @@ int	main(void)
 //	printf("%hd\n",
 	char *p = "abs";
 //	printf("%d\n", compare("h", "hh"));
-//	printf("%d\n", 
+	printf("%d\n", 
 			ft_printf("%d\n", 123));//);
 //	printf("%hd\n",
 //	write(1, &p, 10);

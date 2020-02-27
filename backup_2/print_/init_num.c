@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_num.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/27 18:41:21 by lulee             #+#    #+#             */
+/*   Updated: 2020/02/27 22:08:22 by lulee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf.h"
 
 
@@ -52,10 +64,47 @@ void	arg_is_zero(t_pr *pr)
 	pr->num[0] = 0 + 48;
 }
 
-void	init_num_di(t_pr *pr, long long int var)
+unsigned int	init_num_di(t_pr *pr, long long int var, t_flags *flag, t_param *param)
 {
-	unsigned int	i;
+	unsigned	int	i;
+	unsigned	int len;
 
+	i = 0;
+	len = count_num_pl(var);
+	printf("param->len = %u\n", len);
+	if (flag->sharp == 1 && param->type != 'f')
+	{
+		pr->dop_mem = param->width - param->presition == 1 &&
+			(param->type == 'x' || param->type == 'X'
+			 || param->type == 'p') ? 1 : 0;
+		if (param->type == 'x' || param->type == 'X' || param->type == 'p')
+			len += 2;
+		if (param->type == 'o')
+			len++;
+	}
+	if (len < param->presition)
+		len = param->presition;
+	if (flag->space == 1 || flag->plus == 1 || pr->sign == '-')
+		len++;
+	if (len < param->width)
+		len = param->width;
+	if (param->presition == len)
+		if (flag->sharp == 1 && (param->type == 'x' ||
+					param->type == 'X' || param->type == 'p'))
+			len += 2;
+	len += pr->dop_mem;
+	if (len == 0)
+		len++;
+	if (param->type == 'p')
+		param->len = --len;
+	else
+		param->len = len;
+	printf("param->len = %u\n", param->len);
+	i += final_print(pr, param, flag, var);
+	return (i);
+
+
+/*
 	if (!(pr->num = (char *)malloc((sizeof (char)) * (count_num_pl(var) + 1))))
 		ft_error_exit();
 	i = 0;
@@ -78,5 +127,37 @@ void	init_num_di(t_pr *pr, long long int var)
 		var /= 10;
 	}
 	pr->num[i] = '\0';
-//	printf("%c\n", pr->num[0]);
+//	printf("%c\n", pr->num[0]);*/
+}
+
+static	long long int ft_pow(int num, unsigned int count)
+{
+	unsigned int len;
+
+	len = 0;
+	while (count)
+	{
+		num *= 10;
+		count--;
+	}
+	return (num);
+}
+unsigned	int	print_num_di(t_param *param, long long int var)
+{
+	unsigned int i;
+	unsigned	int	count;
+	char	tmp;
+
+	i = 0;
+	count = count_num_pl(var) - 1;
+	while (param->len)
+	{
+		tmp = var / ft_pow(10, count--) + 48;
+		printf("%c\n", tmp);
+		
+		i += write(param->fd, &tmp, 1);
+		param->len--;
+		var %= ft_pow(10, count--) + 48;
+	}
+	return (i);
 }

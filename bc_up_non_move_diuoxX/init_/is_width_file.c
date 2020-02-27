@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choice_mod.c                                       :+:      :+:    :+:   */
+/*   is_width_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 18:10:14 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 18:10:48 by lulee            ###   ########.fr       */
+/*   Created: 2020/02/26 17:14:42 by lulee             #+#    #+#             */
+/*   Updated: 2020/02/26 17:15:50 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-short	int	choice_mod(t_param *param)
+static	void	pf_atoi_(t_param *param)
 {
-	if (param->mod[0] != '\0')
+	int	n;
+
+	n = 10;
+	while (*param->dup_format &&
+		*param->dup_format >= '0' && *param->dup_format <= '9')
 	{
-		if (compare("h", param->mod) == 0)
-			return (H);
-		if (compare("hh", param->mod) == 0)
-			return (HH);
-		if (compare("l", param->mod) == 0)
-			return (L_DOWN);
-		if (compare("ll", param->mod) == 0)
-			return (LL_DOWN);
-		if (compare("L", param->mod) == 0)
-			return (L_UP);
+		param->width = (n * param->width) + (*param->dup_format - '0');
+		param->dup_format++;
 	}
-	return (NONE_MODE);
+}
+
+void	is_width(t_param *param)
+{
+	param->width = 0;
+	if (*param->dup_format >= '0' && *param->dup_format <= '9')
+		pf_atoi_(param);
+	if (*param->dup_format == '.')
+		param->dup_format++;
 }

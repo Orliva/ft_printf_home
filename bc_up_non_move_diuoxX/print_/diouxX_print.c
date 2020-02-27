@@ -6,7 +6,7 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:22:48 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 21:08:54 by lulee            ###   ########.fr       */
+/*   Updated: 2020/02/27 18:08:07 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	init_flag(t_param *param, t_flags *flag)
 		flag->plus = 0;
 		flag->space = 0;
 	}
-	if (param->type != 'o' || param->type != 'x' || param->type != 'X' || param->type != 'f')
-		flag->sharp = 0;
 //	printf("minus = %d, space = %d, plus = %d, sharp = %d, zero = %d\n",flag->minus, flag->space, flag->plus, flag->sharp, flag->zero);//
 }
 

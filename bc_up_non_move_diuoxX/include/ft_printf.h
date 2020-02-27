@@ -64,18 +64,18 @@ void    ouxX_func(t_param *param, unsigned int *all_len, t_flags *flag);
 void	fF_func(t_param *param, unsigned int *all_len, t_flags *flag);
 void    type_print(t_param *param, unsigned int *all_len);
 void    init_flag(t_param *param, t_flags *flag);
-unsigned int    final_print(t_pr *pr, t_param *param, t_flags *flag, long long int var);
+void    final_print(t_pr *pr, t_param *param, unsigned int *all_len, t_flags *flag);
 void    left_pos(t_pr *pr, t_param *param, t_flags *flag);
-unsigned int    right_pos(t_pr *pr, t_param *param, t_flags *flag);
-unsigned int    _is_sign_space(t_pr *pr, t_param *param, t_flags *flag);
-unsigned int    _is_sharp(t_param *param, t_flags *flag);
-unsigned int    _is_width(t_pr *pr, t_param *param, t_flags *flag);
-unsigned int    _is_presition(t_param *param, t_flags *flag);
+void    right_pos(t_pr *pr, t_param *param, t_flags *flag);
+void    _is_sign_space(t_pr *pr, t_param *param, t_flags *flag);
+void    _is_sharp(char *print, t_param *param, t_flags *flag);
+void    _is_width(t_pr *pr, t_param *param, t_flags *flag, unsigned int val);
+void    _is_presition(char *print, t_param *param, t_flags *flag, unsigned int val);
 void    ft_putstr_fd(char *print, t_param *param, unsigned int *all_len);
 unsigned int count_num_min(unsigned long long int num, t_param *param);
 unsigned int count_num_pl(long long int num);
 void	arg_is_zero(t_pr *pr);
-unsigned int    init_num_di(t_pr *pr, long long int var, t_flags *flag, t_param *param);
+void    init_num_di(t_pr *pr, long long int var);
 void	init_num_16(t_pr *pr, unsigned long long int num);
 void	init_num_8(t_pr *pr, unsigned long long int num);
 void    init_num_u(t_pr *pr, unsigned long long int var);
@@ -121,8 +121,5 @@ void	default_mod_p(t_param *param, unsigned int *all_len, t_flags *flag);
 void	init_num_p(t_flags *flag, t_param *param, unsigned int *all_len, void *num);
 //init_num_cs();
 //void	default_mod_s(t_param *param, unsigned int *all_len, t_flags *flag);
-
-
-unsigned int print_num_di(t_param *param, long long int var);
 
 #endif

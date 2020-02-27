@@ -6,7 +6,7 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:39:25 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 22:04:49 by lulee            ###   ########.fr       */
+/*   Updated: 2020/02/27 18:05:42 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,20 @@ void	default_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 {
 	int var;
 	t_pr	pr;
+	unsigned int len;
 
+	len = 0;
 	pr.sign = '+';
-	pr.dop_mem = 0;
 	if ((var = va_arg(param->arg, int)) < 0)
 	{
+//		len++;
 		pr.sign = '-';
 		flag->plus = 0;
 		flag->space = 0;
 	}
-//	pr.print = mall_width(param, count_num_pl((long long int)var), flag, &pr)
-	*all_len += init_num_di(&pr, (long long int)var, flag, param);
-//	final_print(&pr, param, all_len, flag);
-//	final_print(&pr, param, all_len, flag);
+	pr.print = mall_width(param, (len += count_num_pl((long long int)var)), flag, &pr);
+	init_num_di(&pr, (long long int)var);
+	final_print(&pr, param, all_len, flag);
 }
 
 void	default_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -46,7 +47,7 @@ void	default_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
 	if (param->type == 'o')
 		init_num_8(&pr, (unsigned long long int)var);
 //	write(1, &pr.num, 2);
-//	final_print(&pr, param, all_len, flag);
+	final_print(&pr, param, all_len, flag);
 }
 
 void	default_mod_fF(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -65,7 +66,7 @@ void	default_mod_fF(t_param *param, unsigned int *all_len, t_flags *flag)
 	{
 		init_num_fF_(&pr, param->presition, var > 0 ? var : -var);
 		mall_width_fF(param, ft_strlen(pr.num), flag, &pr);
-//		final_print_fF(&pr, param, all_len, flag);////
+		final_print_fF(&pr, param, all_len, flag);////
 	}
 }
 

@@ -17,8 +17,8 @@ void	h_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 	}
 //	printf("this is shrot_int_h%hd", var);
 	pr.print = mall_width(param, (len += count_num_pl((long long int)var)), flag, &pr);
-	init_num_di(&pr, (long long int)var, flag, param);
-//	final_print(&pr, param, all_len, flag);////another named func;
+	init_num_di(&pr, (long long int)var);
+	final_print(&pr, param, all_len, flag);////another named func;
 }
 
 void	h_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -35,7 +35,7 @@ void	h_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
 		init_num_16(&pr, (unsigned long long int)var);
 	if (param->type == 'o')
 		init_num_8(&pr, (unsigned long long int)var);
-//	final_print(&pr, param, all_len, flag);
+	final_print(&pr, param, all_len, flag);
 }
 
 void	hh_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -55,8 +55,8 @@ void	hh_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 	}
 //	printf("this_is_hh_signed_mod %hhd\n", var);
 	pr.print = mall_width(param, (len += count_num_pl((long long int)var)), flag, &pr);
-	init_num_di(&pr, (long long int)var, flag, param);
-//	final_print(&pr, param, all_len, flag);
+	init_num_di(&pr, (long long int)var);
+	final_print(&pr, param, all_len, flag);
 }
 
 void	hh_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -73,7 +73,7 @@ void	hh_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
 		init_num_16(&pr, (unsigned long long int)var);
 	if (param->type == 'o')
 		init_num_8(&pr, (unsigned long long int)var);
-//	final_print(&pr, param, all_len, flag);
+	final_print(&pr, param, all_len, flag);
 }
 /*
 void	L_mod_fF(t_param *param, unsigned int *all_len, t_flags *flag)

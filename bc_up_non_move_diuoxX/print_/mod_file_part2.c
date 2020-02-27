@@ -16,8 +16,8 @@ void	l_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 		flag->space = 0;
 	}
 	pr.print = mall_width(param, (len += count_num_pl((long long int)var)), flag, &pr);
-	init_num_di(&pr, (long long int)var, flag, param);
-//	final_print(&pr, param, all_len, flag);
+	init_num_di(&pr, (long long int)var);
+	final_print(&pr, param, all_len, flag);
 }
 
 void	l_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -34,7 +34,7 @@ void	l_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
 		init_num_16(&pr, (unsigned long long int)var);
 	if (param->type == 'o')
 		init_num_8(&pr, (unsigned long long int)var);
-//	final_print(&pr, param, all_len, flag);
+	final_print(&pr, param, all_len, flag);
 }
 
 void	ll_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -53,8 +53,8 @@ void	ll_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 		flag->space = 0;
 	}
 	pr.print = mall_width(param, (len += count_num_pl((long long int)var)), flag, &pr);
-	init_num_di(&pr, (long long int)var, flag, param);
-//	final_print(&pr, param, all_len, flag);
+	init_num_di(&pr, (long long int)var);
+	final_print(&pr, param, all_len, flag);
 }
 
 void	ll_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -71,7 +71,7 @@ void	ll_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
 		init_num_16(&pr, (unsigned long long int)var);
 	if (param->type == 'o')
 		init_num_8(&pr, (unsigned long long int)var);
-//	final_print(&pr, param, all_len, flag);
+	final_print(&pr, param, all_len, flag);
 }
 
 void	default_mod_p(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -89,7 +89,7 @@ void	default_mod_p(t_param *param, unsigned int *all_len, t_flags *flag)
 	{
 		pr.print = mall_width(param, count_num_min((unsigned long long int)var, param), flag, &pr);
 		init_num_16(&pr, (unsigned long long int)var);
-//		final_print(&pr, param, all_len, flag);
+		final_print(&pr, param, all_len, flag);
 	}
 	else
 	{

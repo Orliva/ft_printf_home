@@ -1,31 +1,8 @@
 #include "../include/ft_printf.h"
 
 ///////в num записано число реверсом!!
-unsigned	int	right_pos(t_pr *pr, t_param *param, t_flags *flag)
-{
-	unsigned	int	i;
-
-	i = 0;
-	if (flag->zero == 1)
-	{
-		i += _is_sign_space(pr, param, flag);
-		i += _is_sharp(param, flag);
-		i += _is_width(pr, param, flag);
-		i += _is_presition(param, flag);
-		/////печать самого числа
-	}
-	else
-	{
-		i += _is_width(pr, param, flag);
-		i += _is_sign_space(pr, param, flag);
-		i += _is_sharp(param, flag);
-		i += _is_presition(param, flag);
-		//////печать самого числа
-	}
-	return (i);
-
-
-/*
+void	right_pos(t_pr *pr, t_param *param, t_flags *flag)
+{	
 ///	printf("width = %u", param->width); ////
 	while (*pr->num)
 	{
@@ -49,12 +26,12 @@ unsigned	int	right_pos(t_pr *pr, t_param *param, t_flags *flag)
 	}
 	_is_width(pr, param, flag, (unsigned int)0);
 	_is_sharp(pr->print, param, flag);
-	_is_sign_space(pr, param, flag);*/
+	_is_sign_space(pr, param, flag);
 }
 
 void	left_pos(t_pr *pr, t_param *param, t_flags *flag)
 {
-	/*unsigned int i;
+	unsigned int i;
 
 	if ((flag->plus == 1 || pr->sign == '-' || flag->space == 1) && param->width > 0)
 		param->width--;
@@ -82,24 +59,17 @@ void	left_pos(t_pr *pr, t_param *param, t_flags *flag)
 ////	printf("param->width = %u\n", param->width); ////
 	_is_presition(pr->print, param, flag, 0);
 	_is_sharp(pr->print, param, flag);
-	_is_sign_space(pr, param, flag);*/
+	_is_sign_space(pr, param, flag);
 }
 
-unsigned	int	final_print(t_pr *pr, t_param *param, t_flags *flag, long long int var)
+void	final_print(t_pr *pr, t_param *param, unsigned int *all_len, t_flags *flag)
 {
-	unsigned	int i;
-
-	i = 0;
 	if (flag->minus == 1)
 		left_pos(pr, param, flag);
 	else
-	{
-		i += right_pos(pr, param, flag);
-		i += print_num_di(param, var);
-	}
+		right_pos(pr, param, flag);
 	if (param->type == 'X')
 		upper_case_pf(pr->print);
-//	ft_putstr_fd(pr->print, param, all_len);/////ПЕЧАТЬ ТУТ!!!
+	ft_putstr_fd(pr->print, param, all_len);/////ПЕЧАТЬ ТУТ!!!
 //	free(pr->print);
-	return (i);
 }

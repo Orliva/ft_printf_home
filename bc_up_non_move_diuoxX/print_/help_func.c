@@ -6,7 +6,7 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:09:56 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 18:20:19 by lulee            ###   ########.fr       */
+/*   Updated: 2020/02/27 18:15:37 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_putstr_fd(char *print, t_param *param, unsigned int *all_len)
 {
 	while (*print)
 		*all_len += write(param->fd, &*print++, 1);
+//	(*all_len)--;///////будет вычитать лишнюю единицу, если в *print 1 цифра
 }
 
 unsigned int count_num_min(unsigned long long int num, t_param *param)
