@@ -5,12 +5,13 @@ unsigned	int	_is_presition(t_param *param, t_flags *flag)
 	unsigned	int	i;
 
 	i = 0;
-	while (param->presition > param->len)
+	while (param->presition > param->len)////////тут не param->len, количество цифр var
 	{
 		i += write(param->fd, "0", 1);
 		param->presition--;
 		param->len--;
 	}
+	printf("presition___param->len = %u\n",param->len);
 	return (i);
 }
 
@@ -51,6 +52,7 @@ unsigned	int	_is_width(t_pr *pr, t_param *param, t_flags *flag)
 		param->width--;
 		param->len--;
 	}
+	printf("param->len = %u\n",param->len);
 	return (i);
 //	printf("width_is_width = %u\n",param->width); ////
 }

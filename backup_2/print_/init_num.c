@@ -99,7 +99,7 @@ unsigned int	init_num_di(t_pr *pr, long long int var, t_flags *flag, t_param *pa
 		param->len = --len;
 	else
 		param->len = len;
-	printf("param->len = %u\n", param->len);
+	printf("param->len_ = %u\n", param->len);
 	i += final_print(pr, param, flag, var);
 	return (i);
 
@@ -130,7 +130,7 @@ unsigned int	init_num_di(t_pr *pr, long long int var, t_flags *flag, t_param *pa
 //	printf("%c\n", pr->num[0]);*/
 }
 
-static	long long int ft_pow(int num, unsigned int count)
+static	long long int ft_pow_(long long int num, unsigned int count)
 {
 	unsigned int len;
 
@@ -140,6 +140,7 @@ static	long long int ft_pow(int num, unsigned int count)
 		num *= 10;
 		count--;
 	}
+//	printf("num = %lld\n", num);
 	return (num);
 }
 unsigned	int	print_num_di(t_param *param, long long int var)
@@ -149,15 +150,21 @@ unsigned	int	print_num_di(t_param *param, long long int var)
 	char	tmp;
 
 	i = 0;
+//	printf("i_pr_num = %u\n", i);
 	count = count_num_pl(var) - 1;
+	printf("count = %u\n", count);
 	while (param->len)
 	{
-		tmp = var / ft_pow(10, count--) + 48;
-		printf("%c\n", tmp);
+		tmp = (var / ft_pow_((long long int)1, count)) + 48;
+		printf("\nchar tmp = %c\n", tmp);
 		
 		i += write(param->fd, &tmp, 1);
 		param->len--;
-		var %= ft_pow(10, count--) + 48;
+		var %= ft_pow_((long long int)1, count);
+		printf("\n param->len = %u\n", param->len);
+//		printf("num = %lld\n", var);
+		count--;
 	}
+	printf("i_pr_num = %u\n", i);
 	return (i);
 }

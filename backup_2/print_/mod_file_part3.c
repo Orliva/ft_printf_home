@@ -55,18 +55,15 @@ void	default_mod_fF(t_param *param, unsigned int *all_len, t_flags *flag)
 	t_pr	pr;
 
 	pr.sign = '+';
-	if ((var = va_arg(param->arg, double)) < 0)
+	if ((var = va_arg(param->arg, long double)) < 0)
 	{
 		pr.sign = '-';
 		flag->plus = 0;
 		flag->space = 0;
 	}
-	if (param->presition < 18)
-	{
 		init_num_fF_(&pr, param->presition, var > 0 ? var : -var);
-		mall_width_fF(param, ft_strlen(pr.num), flag, &pr);
+//		mall_width_fF(param, ft_strlen(pr.num), flag, &pr);
 //		final_print_fF(&pr, param, all_len, flag);////
-	}
 }
 
 void	default_mod_c(t_param *param, unsigned int *all_len, t_flags *flag)

@@ -16,12 +16,18 @@ unsigned	int	right_pos(t_pr *pr, t_param *param, t_flags *flag)
 	}
 	else
 	{
+		printf("i = %u\n", i);
 		i += _is_width(pr, param, flag);
+		printf("i = %u\n", i);
 		i += _is_sign_space(pr, param, flag);
+		printf("i = %u\n", i);
 		i += _is_sharp(param, flag);
+		printf("i = %u\n", i);
 		i += _is_presition(param, flag);
+		printf("i = %u\n", i);
 		//////печать самого числа
 	}
+		printf("i = %u\n", i);
 	return (i);
 
 
@@ -70,7 +76,7 @@ void	left_pos(t_pr *pr, t_param *param, t_flags *flag)
 		if (flag->sharp == 1 && (param->type == 'x' || param->type == 'X' || param->type == 'p') && param->width > 1)
 			param->width -= 2;
 		_is_width(pr, param, flag, param->presition);
-	}
+	 
 	while (*pr->num)
 	{
 		pr->print[--param->len] = *pr->num++;
