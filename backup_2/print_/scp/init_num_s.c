@@ -6,11 +6,11 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:46:15 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 17:55:06 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/01 22:29:37 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "scp.h"
 
 static	void	left_pos_s(t_param *param, unsigned int *all_len, char *num)
 {
@@ -69,7 +69,6 @@ static	void	right_pos_s(t_flags *flag, t_param *param, unsigned int *all_len, ch
 		len--;
 	}
 }
-
 
 void			init_num_s(t_flags *flag, t_param *param, unsigned int *all_len, char *num)
 {

@@ -6,11 +6,11 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:09:56 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 18:20:19 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/01 16:14:40 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../../include/ft_printf.h"
 
 void	ft_putstr_fd(char *print, t_param *param, unsigned int *all_len)
 {

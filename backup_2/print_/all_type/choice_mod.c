@@ -6,11 +6,11 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 18:10:14 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 18:10:48 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/01 16:14:46 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../../include/ft_printf.h"
 
 short	int	choice_mod(t_param *param)
 {

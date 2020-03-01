@@ -6,11 +6,11 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:22:48 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 21:08:54 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/01 23:15:27 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../../include/ft_printf.h"
 
 void	flag_reset(t_flags *flag)
 {

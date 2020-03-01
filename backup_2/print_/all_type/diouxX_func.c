@@ -6,11 +6,11 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:27:01 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 18:10:09 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/01 21:23:55 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../../include/ft_printf.h"
 
 void	di_func(t_param *param, unsigned int *all_len, t_flags *flag)
 {
@@ -52,15 +52,12 @@ void	fF_func(t_param *param, unsigned int *all_len, t_flags *flag)
 void	c_func(t_param *param, unsigned int *all_len, t_flags *flag)
 {
 	if (param->type == 'c')
-		if (choice_mod(param) == NONE_MODE)
 			default_mod_c(param, all_len, flag);
 	if (param->type == 's')
-		if (choice_mod(param) == NONE_MODE)
 			default_mod_s(param, all_len, flag);
 }
 
 void	p_func(t_param *param, unsigned int *all_len, t_flags *flag)
 {
-	if (choice_mod(param) == NONE_MODE)
-		default_mod_p(param, all_len, flag);
+	default_mod_p(param, all_len, flag);
 }

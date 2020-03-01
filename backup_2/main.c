@@ -10,14 +10,14 @@ int	main(void)
 
 //	ft_printf("Собака сутулая ft_printf\n");
 //	printf("%hd\n",
-	char *p = "abs";
+//	char *p = "abs";
 //	printf("%d\n", compare("h", "hh"));
 	printf("%d\n", 
-			ft_printf("%f\n", (long double)123.321));//);
+			ft_printf("%d\n", 123));//);
 //	printf("%hd\n",
 //	write(1, &p, 10);
 	printf("%d\n", 
-			printf("%Lf\n", (long double)123.321));//);
+			printf("%d\n", 123));//);
 //	while (a < 49)
 //	{
 //		write(1, &a, 1);

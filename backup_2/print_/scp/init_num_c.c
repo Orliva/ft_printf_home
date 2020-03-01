@@ -6,11 +6,11 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:45:57 by lulee             #+#    #+#             */
-/*   Updated: 2020/02/27 18:05:40 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/01 22:29:27 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "scp.h"
 
 static	void	left_pos_c(t_param *param, unsigned int *all_len, unsigned char num)
 {
