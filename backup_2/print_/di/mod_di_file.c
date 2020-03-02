@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "di.h"
+#include "inc/di.h"
 
 void	default_mod_di(t_param *param, unsigned int *all_len, t_flags *flag)
 {

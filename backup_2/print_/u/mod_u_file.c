@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "u.h"
+#include "inc/u.h"
 
 void	default_mod_u(t_param *param, unsigned int *all_len, t_flags *flag)
 {
@@ -20,7 +20,7 @@ void	default_mod_u(t_param *param, unsigned int *all_len, t_flags *flag)
 	*all_len += init_num_u((unsigned long long int)var, flag, param);
 }
 
-void	h_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
+void	h_mod_u(t_param *param, unsigned int *all_len, t_flags *flag)
 {
 	unsigned int var;
 
@@ -28,7 +28,7 @@ void	h_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
 	*all_len += init_num_u((unsigned long long int)var, flag, param);
 }
 
-void	hh_mod_ouxX(t_param *param, unsigned int *all_len, t_flags *flag)
+void	hh_mod_u(t_param *param, unsigned int *all_len, t_flags *flag)
 {
 	unsigned char var;
 

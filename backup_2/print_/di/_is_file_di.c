@@ -1,4 +1,4 @@
-#include "di.h"
+#include "inc/di.h"
 
 unsigned	int	_is_presition_di(t_param *param)
 {

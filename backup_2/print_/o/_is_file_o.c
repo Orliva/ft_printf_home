@@ -1,4 +1,4 @@
-#include "o.h"
+#include "inc/o.h"
 
 unsigned	int	_is_presition_o(t_param *param)
 {

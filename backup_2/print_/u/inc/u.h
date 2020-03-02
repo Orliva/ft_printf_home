@@ -1,6 +1,6 @@
 #ifndef	U_H
 #define U_H
-#include "../../include/ft_printf.h"
+#include "../../../include/ft_printf.h"
 
 void	default_mod_u(t_param *param, unsigned int *all_len, t_flags *flag);
 void	h_mod_u(t_param *param, unsigned int *all_len, t_flags *flag);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "xX.h"
+#include "inc/xX.h"
 
 static	unsigned	int	right_pos(t_param *param, t_flags *flag)
 {

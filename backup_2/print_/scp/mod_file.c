@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scp.h"
+#include "inc/scp.h"
 
 void	default_mod_p(t_param *param, unsigned	int	*all_len, t_flags *flag)
 {

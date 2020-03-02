@@ -62,12 +62,18 @@ void	type_print(t_param *param, unsigned int *all_len)
 	init_flag(param, &flag);
 	if (param->type == 'd' || param->type == 'i')
 		ptr_ints_f = di_func;
-	if (param->type == 'u' || param->type == 'o' || param->type == 'x' || param->type == 'X')
-		ptr_ints_f = ouxX_func;
-	if (param->type == 'f' || param->type == 'F')
-		ptr_ints_f = fF_func;
-	if (param->type == 'c' || param->type == 's')
+	if (param->type == 'u')
+		ptr_ints_f = u_func;
+	if (param->type == 'o')
+		ptr_ints_f = o_func;
+	if (param->type == 'x' || param->type == 'X')
+		ptr_ints_f = xX_func;
+//	if (param->type == 'f' || param->type == 'F')
+//		ptr_ints_f = fF_func;
+	if (param->type == 'c')
 		ptr_ints_f = c_func;
+	if (param->type == 's')
+		ptr_ints_f = s_func;
 	if (param->type == 'p')
 		ptr_ints_f = p_func;
 	ptr_ints_f(param, all_len, &flag);

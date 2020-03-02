@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "o.h"
+#include "inc/o.h"
 
 void	default_mod_o(t_param *param, unsigned int *all_len, t_flags *flag)
 {

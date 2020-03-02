@@ -1,6 +1,6 @@
 #ifndef	XX_H
 #define XX_H
-#include "../../include/ft_printf.h"
+#include "../../../include/ft_printf.h"
 
 
 void	default_mod_xX(t_param *param, unsigned int *all_len, t_flags *flag);

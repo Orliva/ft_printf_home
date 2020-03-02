@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "xX.h"
+#include "inc/xX.h"
 
 static	unsigned	long	long	int	ft_pow(unsigned long long int num, unsigned int count)
 {

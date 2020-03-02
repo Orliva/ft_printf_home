@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scp.h"
+#include "inc/scp.h"
 
 static	unsigned	long	long	int	ft_pow(unsigned long long int num, unsigned int count)
 {

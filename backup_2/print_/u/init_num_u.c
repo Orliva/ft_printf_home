@@ -10,14 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "u.h"
+#include "inc/u.h"
 
 static	unsigned	long	long	int	ft_pow_
 (unsigned long long int num, unsigned int count)
 {
-	unsigned int len;
-
-	len = 0;
 	while (count)
 	{
 		num *= 10;

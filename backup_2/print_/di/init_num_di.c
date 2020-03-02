@@ -10,13 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "di.h"
+#include "inc/di.h"
 
 static	long	long	int	ft_pow_(long long int num, unsigned int count)
 {
-	unsigned int len;
-
-	len = 0;
 	while (count)
 	{
 		num *= 10;

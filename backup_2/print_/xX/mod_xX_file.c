@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "xX.h"
+#include "inc/xX.h"
 
 void	default_mod_xX(t_param *param, unsigned int *all_len, t_flags *flag)
 {

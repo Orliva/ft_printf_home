@@ -1,6 +1,6 @@
 #ifndef DI_H
 #define DI_H
-#include "../../include/ft_printf.h"
+#include "../../../include/ft_printf.h"
 
 void	default_mod_di(t_param *param, unsigned int *all_len, t_flags *flag);
 void	h_mod_di(t_param *param, unsigned int *all_len, t_flags *flag);

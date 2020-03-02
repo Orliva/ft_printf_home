@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scp.h"
+#include "inc/scp.h"
 
 static	unsigned	int	right_pos(t_param *param, t_flags *flag)
 {
@@ -52,7 +52,7 @@ static	unsigned	int	final_print_p(t_param *param, t_flags *flag, unsigned long l
 	return (i);
 }
 
-unsigned int	init_num_16(t_pr *pr, unsigned long long int var, t_flags *flag, t_param *param)
+unsigned int	init_num_16_p(t_pr *pr, unsigned long long int var, t_flags *flag, t_param *param)
 {
 	unsigned	int	i;
 

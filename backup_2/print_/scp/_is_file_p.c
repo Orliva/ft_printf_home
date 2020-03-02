@@ -1,4 +1,4 @@
-#include "scp.h"
+#include "inc/scp.h"
 
 unsigned	int	_is_presition_p(t_param *param)
 {

@@ -11,11 +11,11 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "struct.h"
-#include "../print_/di/di.h"
-#include "../print_/o/o.h"
-#include "../print_/u/u.h"
-#include "../print_/xX/xX.h"
-#include "../print_/scp/scp.h"
+#include "../print_/di/inc/di.h"
+#include "../print_/o/inc/o.h"
+#include "../print_/u/inc/u.h"
+#include "../print_/xX/inc/xX.h"
+#include "../print_/scp/inc/scp.h"
 //#include "../print_/f/f.h"
 
 int	ft_printf(const char *format, ...);
@@ -37,8 +37,11 @@ unsigned	int	count_num_pl(long long int num);
 
 short	int	choice_mod(t_param *param);
 void	di_func(t_param *param, unsigned int *all_len, t_flags *flag);
-void	ouxX_func(t_param *param, unsigned int *all_len, t_flags *flag);
+void	o_func(t_param *param, unsigned int *all_len, t_flags *flag);
+void	u_func(t_param *param, unsigned int *all_len, t_flags *flag);
+void	xX_func(t_param *param, unsigned int *all_len, t_flags *flag);
 void	fF_func(t_param *param, unsigned int *all_len, t_flags *flag);
+void	s_func(t_param *param, unsigned int *all_len, t_flags *flag);
 void	c_func(t_param *param, unsigned int *all_len, t_flags *flag);
 void	p_func(t_param *param, unsigned int *all_len, t_flags *flag);
 void	flag_reset(t_flags *flag);

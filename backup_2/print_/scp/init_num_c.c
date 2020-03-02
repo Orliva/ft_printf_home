@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scp.h"
+#include "inc/scp.h"
 
 static	void	left_pos_c(t_param *param, unsigned int *all_len, unsigned char num)
 {
