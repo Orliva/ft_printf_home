@@ -11,7 +11,6 @@ unsigned	int	_is_presition_u(t_param *param)
 		param->presition--;
 		if (param->width > 0)
 			param->width--;
-		param->len--;
 	}
 	return (i);
 }
@@ -27,7 +26,6 @@ unsigned	int	_is_width_u(t_param *param, t_flags *flag)
 	{
 		i += write(param->fd, &tmp, 1);
 		param->width--;
-		param->len--;
 	}
 	return (i);
 }

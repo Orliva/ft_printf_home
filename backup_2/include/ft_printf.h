@@ -16,7 +16,7 @@
 #include "../print_/u/inc/u.h"
 #include "../print_/xX/inc/xX.h"
 #include "../print_/scp/inc/scp.h"
-//#include "../print_/f/f.h"
+#include "../print_/f/inc/fF.h"
 
 int	ft_printf(const char *format, ...);
 int	init_param(t_param *param, unsigned int *all_len);

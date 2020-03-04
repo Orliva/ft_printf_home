@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-C_FILE = ft_printf.c init_/*.c print_/all_type/*.c print_/di/*.c print_/o/*.c print_/scp/*.c print_/u/*.c print_/xX/*.c
+C_FILE = ft_printf.c init_/*.c print_/all_type/*.c print_/di/*.c print_/o/*.c print_/scp/*.c print_/u/*.c print_/xX/*.c print_/f/*.c
 
 O_FILE = *.o
 

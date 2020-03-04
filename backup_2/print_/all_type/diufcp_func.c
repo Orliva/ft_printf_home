@@ -44,7 +44,7 @@ void	u_func(t_param *param, unsigned int *all_len, t_flags *flag)
 void	fF_func(t_param *param, unsigned int *all_len, t_flags *flag)
 {
 	if (choice_mod(param) == NONE_MODE)
-		default_mod_s(param, all_len, flag);///////исправить на fF
+		default_mod_fF(param, all_len, flag);///////исправить на fF
 //	if (choice_mod(param) == L_UP)
 //		L_mod_fF(param, all_len, flag);
 }

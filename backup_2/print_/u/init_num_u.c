@@ -44,7 +44,7 @@ static	unsigned	int					print_num_u
 	if ((param->s_presit == 1 && param->presition != 0)
 			|| param->s_presit == 0)
 	{
-		tmp = (var / ft_pow_((unsigned long long int)1, count)) + 48;
+		tmp = var + 48;
 		i += write(param->fd, &tmp, 1);
 	}
 	return (i);
@@ -78,12 +78,7 @@ unsigned	int							init_num_u
 
 	i = 0;
 	param->count = count_num_min(var, param);
-	param->len = param->count;
-	if (param->len < param->presition)
-		param->len = param->presition;
-	if (param->len < param->width)
-		param->len = param->width;
-	if (param->len == 0)
+	if (param->len == 0)/////под костыль
 		param->len++;
 	i += final_print_u(param, flag, var);
 	return (i);

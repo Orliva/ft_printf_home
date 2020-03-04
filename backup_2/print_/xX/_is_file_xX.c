@@ -11,7 +11,6 @@ unsigned	int	_is_presition_xX(t_param *param)
 		param->presition--;
 		if (param->width > 0)
 			param->width--;
-		param->len--;
 	}
 	return (i);
 }
@@ -27,8 +26,8 @@ unsigned	int	_is_width_xX(t_param *param, t_flags *flag)
 	{
 		i += write(param->fd, &tmp, 1);
 		param->width--;
-		param->len--;
 	}
+//	printf("param->len_width = %u\n", param->len);
 	return (i);
 }
 
@@ -39,14 +38,11 @@ unsigned	int	_is_sharp_xX(t_param *param, t_flags *flag)
 	i = 0;
 	if (flag->sharp)
 	{
-		if (param->width > 1)
-			param->width -= 2;
 		i += write(param->fd, "0", 1);
 		if (param->type == 'x')
 			i += write(param->fd, "x", 1);
 		else
 			i += write(param->fd, "X", 1);
-		param->len--;
 	}
 	return (i);
 }

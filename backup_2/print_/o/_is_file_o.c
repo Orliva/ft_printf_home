@@ -11,7 +11,6 @@ unsigned	int	_is_presition_o(t_param *param)
 		param->presition--;
 		if (param->width > 0)
 			param->width--;
-		param->len--;
 	}
 	return (i);
 }
@@ -27,7 +26,6 @@ unsigned	int	_is_width_o(t_param *param, t_flags *flag)
 	{
 		i += write(param->fd, &tmp, 1);
 		param->width--;
-		param->len--;
 	}
 	return (i);
 }
@@ -39,10 +37,7 @@ unsigned	int	_is_sharp_o(t_param *param, t_flags *flag)
 	i = 0;
 	if (flag->sharp)
 	{
-		if (param->width > 0)
-			param->width--;
 		i += write(param->fd, "0", 1);
-		param->len--;
 	}
 	return (i);
 }

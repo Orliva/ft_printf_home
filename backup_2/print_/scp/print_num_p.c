@@ -43,13 +43,13 @@ static	char	ft_letter(t_param *param, unsigned char num)
 	return ('f' + coef);
 }
 
-static	unsigned	int	final_part(t_param *param, unsigned long long int var, unsigned int count)
+static	unsigned	int	final_part(t_param *param, unsigned long long int var)
 {
 	unsigned	char	tmp;
 
 	if ((param->s_presit == 1 && param->presition != 0) || param->s_presit == 0)
 	{
-		tmp = (var / ft_pow((unsigned long long int)1, count));
+		tmp = var;
 		if (tmp < 10)
 			tmp += 48;
 		else
@@ -82,6 +82,6 @@ unsigned	int	print_num_p(t_param *param, unsigned long long int var)
 		var %= ft_pow((unsigned long long int)1, count);
 		count--;
 	}
-	i += final_part(param, var, count);
+	i += final_part(param, var);
 	return (i);
 }

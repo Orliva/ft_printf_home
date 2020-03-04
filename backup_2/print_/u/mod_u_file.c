@@ -38,7 +38,7 @@ void	hh_mod_u(t_param *param, unsigned int *all_len, t_flags *flag)
 
 void	l_mod_u(t_param *param, unsigned int *all_len, t_flags *flag)
 {
-	unsigned	int	var;
+	unsigned	long	int	var;
 
 	var = va_arg(param->arg, unsigned long int);
 	*all_len += init_num_u((unsigned long long int)var, flag, param);
@@ -46,7 +46,7 @@ void	l_mod_u(t_param *param, unsigned int *all_len, t_flags *flag)
 
 void	ll_mod_u(t_param *param, unsigned int *all_len, t_flags *flag)
 {
-	unsigned	int	var;
+	unsigned	long	long	int	var;
 
 	var = va_arg(param->arg, unsigned long long int);
 	*all_len += init_num_u((unsigned long long int)var, flag, param);

@@ -15,14 +15,13 @@
 void	default_mod_p(t_param *param, unsigned	int	*all_len, t_flags *flag)
 {
 	void	*var;
-	t_pr	pr;
 	char	tmp;
 
 	var = va_arg(param->arg, void *);
 	flag->sharp = 1;
 	if (var)
-		*all_len += init_num_16_p(&pr, (unsigned long long int)var, flag, param);
-	else
+		*all_len += init_num_16_p((unsigned long long int)var, flag, param);
+	else/////что это???
 	{
 		tmp = flag->zero == 1 ? '0' : ' ';
 		while (param->width > 3 && tmp == ' ' && flag->minus == 0)

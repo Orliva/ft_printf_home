@@ -13,11 +13,11 @@ int	main(void)
 //	char *p = "abs";
 //	printf("%d\n", compare("h", "hh"));
 	printf("%d\n", 
-			ft_printf("%f\n", 123456789012345678901.2345));//);
+			ft_printf("%f\n", 0.1234567890123456789012345));//);
 //	printf("%hd\n",
 //	write(1, &p, 10);
 	printf("%d\n", 
-			printf("%f\n", 123456789012345678901.2345));//);
+			printf("%f\n", 0.1234567890123456789012345));//);
 //	while (a < 49)
 //	{
 //		write(1, &a, 1);

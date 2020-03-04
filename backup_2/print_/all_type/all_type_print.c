@@ -39,6 +39,7 @@ void	init_flag(t_param *param, t_flags *flag)
 		if (param->flag[i] == ' ')
 			flag->space = 1;
 	}
+//	printf("minus = %d, space = %d, plus = %d, sharp = %d, zero = %d\n",flag->minus, flag->space, flag->plus, flag->sharp, flag->zero);//
 	if (flag->plus == 1)
 		flag->space = 0;
 	if ((flag->minus == 1 || (param->presition != 0 && param->type != 's')))
@@ -48,8 +49,8 @@ void	init_flag(t_param *param, t_flags *flag)
 		flag->plus = 0;
 		flag->space = 0;
 	}
-	if (param->type != 'o' || param->type != 'x' || param->type != 'X' || param->type != 'f')
-		flag->sharp = 0;
+//	if (param->type != 'o' || param->type != 'x' || param->type != 'X' || param->type != 'f')
+	//	flag->sharp = 0;
 //	printf("minus = %d, space = %d, plus = %d, sharp = %d, zero = %d\n",flag->minus, flag->space, flag->plus, flag->sharp, flag->zero);//
 }
 
@@ -68,8 +69,8 @@ void	type_print(t_param *param, unsigned int *all_len)
 		ptr_ints_f = o_func;
 	if (param->type == 'x' || param->type == 'X')
 		ptr_ints_f = xX_func;
-//	if (param->type == 'f' || param->type == 'F')
-//		ptr_ints_f = fF_func;
+	if (param->type == 'f' || param->type == 'F')
+		ptr_ints_f = fF_func;
 	if (param->type == 'c')
 		ptr_ints_f = c_func;
 	if (param->type == 's')
@@ -77,4 +78,5 @@ void	type_print(t_param *param, unsigned int *all_len)
 	if (param->type == 'p')
 		ptr_ints_f = p_func;
 	ptr_ints_f(param, all_len, &flag);
+	*all_len += 1;////////Удалить!! Написано для теста
 }

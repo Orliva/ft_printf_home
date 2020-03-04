@@ -52,28 +52,16 @@ static	unsigned	int	final_print_xX(t_param *param, t_flags *flag, unsigned long 
 	return (i);
 }
 
-unsigned int	init_num_16_xX(t_pr *pr, unsigned long long int var, t_flags *flag, t_param *param)
+unsigned int	init_num_16_xX(unsigned long long int var, t_flags *flag, t_param *param)
 {
 	unsigned	int	i;
 
 	i = 0;
 	param->count = count_num_min(var, param);
-	param->len = param->count;
 	if (flag->sharp)
-	{
-		pr->dop_mem = param->width - param->presition == 1 &&
-			(param->type == 'x' || param->type == 'X') ? 1 : 0;
-		param->len += 2;
-	}
-	if (param->len < param->presition)
-		param->len = param->presition;
-	if (param->len < param->width)
-		param->len = param->width;
-	if (param->presition == param->len)
-		if (flag->sharp)
-			param->len += 2;
-	param->len += pr->dop_mem;
-	if (param->len == 0)
+		if (param->width > 1)
+			param->width -= 2;
+	if (param->len == 0)/////костыль
 		param->len++;
 	i += final_print_xX(param, flag, var);
 	return (i);

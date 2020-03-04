@@ -41,7 +41,8 @@ static	unsigned	int	print_num_o(t_param *param, long long int var)
 	}
 	if ((param->s_presit == 1 && param->presition != 0) || param->s_presit == 0)
 	{
-		tmp = (var / ft_pow_((long long int)1, count)) + 48;
+		param->len = param->width;
+		tmp = var + 48;
 		i += write(param->fd, &tmp, 1);
 	}
 	return (i);
@@ -93,14 +94,10 @@ unsigned int	init_num_8(unsigned long long int var, t_flags *flag, t_param *para
 
 	i = 0;
 	param->count = count_num_min(var, param);
-	param->len = param->count;
 	if (flag->sharp)
-		param->len++;
-	if (param->len < param->presition)
-		param->len = param->presition;
-	if (param->len < param->width)
-		param->len = param->width;
-	if (param->len == 0)
+		if (param->width > 0)
+			param->width--;
+	if (param->len == 0)//////костыль
 		param->len++;
 	i += final_print_o(param, flag, var);
 	return (i);
