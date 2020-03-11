@@ -42,8 +42,10 @@ int				ft_printf(const char *format, ...)
 {
 	t_param			param;
 	unsigned	int	len;
+	char			*tmp;
 
 	init_par(&param, format);
+	tmp = param.dup_format;
 	len = 0;
 	va_start(param.arg, format);
 	while (*param.dup_format)
@@ -59,6 +61,7 @@ int				ft_printf(const char *format, ...)
 			param.dup_format++;
 		}
 	}
+	free(tmp);
 	va_end(param.arg);
 	return (len);
 }

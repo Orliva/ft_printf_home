@@ -36,7 +36,7 @@ static	unsigned	int	proc_print(t_param *param, t_flags *flag)
 	len = 0;
 	if (flag->minus == 1)
 		flag->zero = 0;
-	init_flag(param, flag);
+//	init_flag(param, flag);
 	tmp = flag->zero == 1 ? '0' : ' ';
 	if (flag->minus == 1)
 	{

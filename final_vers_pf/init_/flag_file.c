@@ -35,15 +35,12 @@ void			is_flag(t_param *param)
 {
 	int		len;
 	char	*tmp;
-	char	*tmp_2;
 
 	len = 0;
 	tmp = NULL;
-	tmp_2 = NULL;
 	if (!(param->flag = (char *)malloc(sizeof(char) * (len + 1))))
 		ft_error_exit();
-	*param->flag = '\0';
-	tmp_2 = param->flag;
+	param->flag[len] = '\0';
 	while (*param->dup_format && (*param->dup_format == '-' ||
 		*param->dup_format == '+' || *param->dup_format == ' ' ||
 		*param->dup_format == '0' || *param->dup_format == '#'))
@@ -53,6 +50,7 @@ void			is_flag(t_param *param)
 			ft_error_exit();
 		tmp[len] = '\0';
 		rewrite_flag(param, tmp);
+		free(param->flag);
 		param->flag = tmp;
 		param->dup_format++;
 	}
