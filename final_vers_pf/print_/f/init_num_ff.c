@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "inc/ff.h"
+#include <stdio.h>
 
 static	void	part_doub(t_pr *pr, t_param *param, long double *var)
 {
@@ -20,7 +21,10 @@ static	void	part_doub(t_pr *pr, t_param *param, long double *var)
 	while (param->presition)
 	{
 		if ((int)(*var * 10) == 0)
+		{
 			pr->num[pr->i++] = '0';
+			*var *= 10;
+		}
 		else
 		{
 			tmp = ((int)*var != 9) ? (int)(*var + 0.01) : (int)*var;
@@ -30,6 +34,8 @@ static	void	part_doub(t_pr *pr, t_param *param, long double *var)
 		}
 		param->presition--;
 	}
+	pr->num[pr->i] = '\0';/////влияет ли 0 на free????
+	rounding_f(pr, param, var);
 }
 
 static	void	part_int(t_pr *pr, t_param *param,
@@ -38,7 +44,7 @@ static	void	part_int(t_pr *pr, t_param *param,
 	char	tmp;
 
 	*var /= ft_pow_lld((long double)1, val);
-	param->len++;
+	param->len++;///////////Удалить!!
 	while (val)
 	{
 		tmp = (char)(*var * 10 + 48);
@@ -52,7 +58,7 @@ static	void	print_num_f(t_pr *pr, t_param *param,
 		t_flags *flag, long double var)
 {
 	part_int(pr, param, &var, count_num_f(var));
-	if (flag->sharp && param->presition)
+	if (flag->sharp || param->presition)
 		pr->num[pr->i++] = '.';
 	else
 	{
@@ -68,6 +74,7 @@ static	void	final_print_f(t_pr *pr, t_param *param,
 	unsigned	int	val_;
 
 	val_ = val(param, flag, num);
+
 	if (flag->minus)
 	{
 		is_sign_space_f(pr, param, flag);
@@ -86,6 +93,7 @@ void			init_num_f(t_pr *pr, t_param *param,
 {
 	param->len = param->presition;
 	pr->i = 0;
+//	printf("%Lf\n", *num);
 	if (num < 0)
 	{
 		num = -num;

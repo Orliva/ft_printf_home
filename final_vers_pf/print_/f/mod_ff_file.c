@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../include/ft_printf.h"
+#include <stdio.h>
 
 void	default_mod_f(t_param *param, unsigned int *all_len, t_flags *flag)
 {
@@ -27,7 +28,10 @@ void	default_mod_f(t_param *param, unsigned int *all_len, t_flags *flag)
 		flag->space = 0;
 	}
 	init_num_f(&pr, param, flag, (long double)var);
+	if (param->spesific_symb == -1)
+		*all_len += write(param->fd, "1", 1);
 	ft_putstr_fd(pr.num, param, all_len);
+	free(pr.num);
 }
 
 void	l_mod_f(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -45,7 +49,10 @@ void	l_mod_f(t_param *param, unsigned int *all_len, t_flags *flag)
 		flag->space = 0;
 	}
 	init_num_f(&pr, param, flag, (long double)var);
+	if (param->spesific_symb == -1)
+		*all_len += write(param->fd, "1", 1);
 	ft_putstr_fd(pr.num, param, all_len);
+	free(pr.num);
 }
 
 void	l_up_mod_f(t_param *param, unsigned int *all_len, t_flags *flag)
@@ -63,5 +70,8 @@ void	l_up_mod_f(t_param *param, unsigned int *all_len, t_flags *flag)
 		flag->space = 0;
 	}
 	init_num_f(&pr, param, flag, var);
+	if (param->spesific_symb == -1)
+		*all_len += write(param->fd, "1", 1);
 	ft_putstr_fd(pr.num, param, all_len);
+	free(pr.num);
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "inc/ff.h"
+#include <stdio.h>
 
 unsigned	int	count_num_f(long double var)
 {
@@ -35,3 +36,38 @@ long	double	ft_pow_lld(long double num, unsigned int count)
 	}
 	return (num);
 }
+
+int				rounding_f(t_pr *pr, t_param *param, long double *var)
+{
+	if (pr->num[pr->i] != '.')
+		pr->i--;
+//	else
+//		*var = 
+//	printf("%c %d\n", pr->num[pr->i], (int)*var);
+	if ((int)(*var) < 5)
+		return (0);
+	else
+	{
+		if (pr->num[pr->i] == '.')
+			pr->i--;
+		pr->num[pr->i]++;
+		while (pr->num[pr->i] == 58 || pr->num[pr->i] == '.')
+		{
+			if (pr->num[pr->i] != '.')
+				pr->num[pr->i] = '0';
+			if (pr->i > 0)
+				pr->i--;
+			if (pr->num[pr->i] == '.')
+				pr->i--;
+			pr->num[pr->i]++;
+			if (pr->i == 0 && pr->num[pr->i] == 58)
+			{
+				param->spesific_symb = -1;
+				pr->num[pr->i] = '0';
+				return (-1);
+			}
+		}
+	}
+	return (1);
+}
+

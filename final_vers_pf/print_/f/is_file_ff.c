@@ -18,6 +18,8 @@ void			is_width_f(t_pr *pr, t_param *param,
 	char	tmp;
 
 	tmp = flag->zero == 1 ? '0' : ' ';
+	if (flag->minus)////&& param->width < param->presition)
+		pr->i++;
 	while (param->width > val)
 	{
 		pr->num[pr->i++] = tmp;
@@ -28,7 +30,7 @@ void			is_width_f(t_pr *pr, t_param *param,
 void			is_sign_space_f(t_pr *pr, t_param *param,
 		t_flags *flag)
 {
-	param->len++;
+	param->len++;////////Удалить!!
 	if (flag->plus && pr->sign == '+')
 	{
 		pr->num[pr->i++] = '+';

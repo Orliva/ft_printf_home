@@ -47,7 +47,8 @@ void			init_flag(t_param *param, t_flags *flag)
 	help_init_flag(param, flag);
 	if (flag->plus == 1)
 		flag->space = 0;
-	if ((flag->minus == 1 || (param->presition != 0 && param->type != 's')))
+	if ((flag->minus == 1 || (param->presition != 0 &&
+		(param->type != 's' && param->type != 'f'))))
 		flag->zero = 0;
 	if (param->type == 'u' || param->type == 'o' ||
 			param->type == 'x' || param->type == 'X')

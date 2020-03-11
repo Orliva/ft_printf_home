@@ -31,5 +31,6 @@ void			right_pos_f(t_pr *pr, t_param *param, t_flags *flag,
 		unsigned int val_);
 void			rouding(t_pr *pr, t_param *param, long double var);
 long	double	ft_pow_lld(long double num, unsigned int count);
+int				rounding_f(t_pr *pr, t_param *param,  long double *var);
 
 #endif
