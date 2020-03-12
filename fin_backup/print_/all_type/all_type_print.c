@@ -6,7 +6,7 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 08:10:01 by lulee             #+#    #+#             */
-/*   Updated: 2020/03/12 21:37:02 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/12 21:20:14 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void			init_flag(t_param *param, t_flags *flag)
 		flag->plus = 0;
 		flag->space = 0;
 	}
+//	free(param->flag);
 }
 
 void			type_print(t_param *param, unsigned int *all_len)

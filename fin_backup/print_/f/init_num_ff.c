@@ -6,7 +6,7 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 19:20:08 by lulee             #+#    #+#             */
-/*   Updated: 2020/03/12 21:45:32 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/12 20:58:25 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static	void	part_doub(t_pr *pr, t_param *param, long double *var)
 {
 	char	tmp;
 
+//	printf("before part_doub = %s\n", pr->num);
 	*var *= 10;
 	while (param->presition)
 	{
@@ -28,22 +29,26 @@ static	void	part_doub(t_pr *pr, t_param *param, long double *var)
 		else
 		{
 			tmp = ((int)*var != 9) ? (int)(*var) : (int)*var;
+//			printf("var = %Lf\n", *var);
 			*var = (*var - tmp) * 10;
 			tmp += 48;
+	//		printf("tmp = %c\n", tmp);
 			pr->num[pr->i++] = tmp;
 		}
 		param->presition--;
 	}
-	pr->num[pr->i] = '\0';
+//	printf("after part_doub = %s\n", pr->num);
+	pr->num[pr->i] = '\0';/////влияет ли 0 на free????
 	rounding_f(pr, param, var);
 }
 
-static	void	part_int(t_pr *pr,
+static	void	part_int(t_pr *pr, t_param *param,
 		long double *var, unsigned int val)
 {
 	char	tmp;
 
 	*var /= ft_pow_lld((long double)1, val);
+	param->len++;///////////Удалить!!
 	while (val)
 	{
 		tmp = (char)(*var * 10 + 48);
@@ -56,7 +61,7 @@ static	void	part_int(t_pr *pr,
 static	void	print_num_f(t_pr *pr, t_param *param,
 		t_flags *flag, long double var)
 {
-	part_int(pr, &var, count_num_f(var));
+	part_int(pr, param, &var, count_num_f(var));
 	if (flag->sharp || param->presition)
 		pr->num[pr->i++] = '.';
 	else
@@ -73,9 +78,10 @@ static	void	final_print_f(t_pr *pr, t_param *param,
 	unsigned	int	val_;
 
 	val_ = val(param, flag, num);
+
 	if (flag->minus)
 	{
-		is_sign_space_f(pr, flag);
+		is_sign_space_f(pr, param, flag);
 		print_num_f(pr, param, flag, num);
 		is_width_f(pr, param, flag, val_);
 	}
@@ -91,6 +97,7 @@ void			init_num_f(t_pr *pr, t_param *param,
 {
 	param->len = param->presition;
 	pr->i = 0;
+//	printf("%Lf\n", *num);
 	if (num < 0)
 	{
 		num = -num;

@@ -6,7 +6,7 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 18:40:02 by lulee             #+#    #+#             */
-/*   Updated: 2020/03/12 21:47:09 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/05 19:22:05 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void			l_up_mod_f(t_param *param, unsigned int *all_len,
 		t_flags *flag);
 void			init_num_f(t_pr *pr, t_param *param, t_flags *flag,
 		long double num);
-void			is_sign_space_f(t_pr *pr, t_flags *flag);
+void			is_sign_space_f(t_pr *pr, t_param *param, t_flags *flag);
 void			is_width_f(t_pr *pr, t_param *param, t_flags *flag,
 		unsigned int val_);
 void			right_pos_f(t_pr *pr, t_param *param, t_flags *flag,
 		unsigned int val_);
 void			rouding(t_pr *pr, t_param *param, long double var);
 long	double	ft_pow_lld(long double num, unsigned int count);
-int				rounding_f(t_pr *pr, t_param *param, long double *var);
+int				rounding_f(t_pr *pr, t_param *param,  long double *var);
 
 #endif

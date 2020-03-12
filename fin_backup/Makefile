@@ -6,7 +6,7 @@ O_FILE = ft_printf.o flag_file.o init_param.o is_mod_file.o is_presition_file.o 
 
 GCC_FLAGS = -Wall -Wextra -Werror
 
-$(NAME):./include/ft_printf.h $(C_FILE)
+$(NAME):./include/ft_printf.h %.c
 	gcc $(GCC_FLAGS) -c $(C_FILE) -I ./include
 	ar rc $(NAME) $(O_FILE)
 	ranlib $(NAME)

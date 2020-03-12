@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_mod_file.c                                      :+:      :+:    :+:   */
+/*   is_presition_file.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 08:12:51 by lulee             #+#    #+#             */
-/*   Updated: 2020/03/12 21:37:36 by lulee            ###   ########.fr       */
+/*   Created: 2020/03/05 08:13:04 by lulee             #+#    #+#             */
+/*   Updated: 2020/03/05 08:29:28 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static	int	part_is_mod(t_param *param)
+static	void	pf_atoi(t_param *param)
 {
-	int	len;
+	int	n;
 
-	len = 0;
-	while (*param->dup_format == 'h' || *param->dup_format == 'l' ||
-		*param->dup_format == 'L')
+	n = 10;
+	while (*param->dup_format >= '0' && *param->dup_format <= '9')
 	{
-		len++;
+		param->n_presit = 1;
+		param->presition = (param->presition * n) + (*param->dup_format - '0');
 		param->dup_format++;
 	}
-	return (len);
 }
 
-void		is_mod(t_param *param)
+void			is_presition(t_param *param)
 {
-	int	len;
-
-	if (!(param->mod = (char *)malloc(sizeof(char) *
-					((len = part_is_mod(param)) + 1))))
-		ft_error_exit();
-	param->mod[len] = '\0';
-	len--;
-	while (len >= 0)
-	{
-		param->dup_format--;
-		param->mod[len] = *param->dup_format;
-		len--;
-	}
-	part_is_mod(param);
+	param->n_presit = 0;
+	if (*(param->dup_format - 1) == '.')
+		param->n_presit = 1;
+	param->presition = 0;
+	if (*param->dup_format >= '0' && *param->dup_format <= '9')
+		pf_atoi(param);
 }

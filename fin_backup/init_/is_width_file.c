@@ -1,45 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_mod_file.c                                      :+:      :+:    :+:   */
+/*   is_width_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 08:12:51 by lulee             #+#    #+#             */
-/*   Updated: 2020/03/12 21:37:36 by lulee            ###   ########.fr       */
+/*   Created: 2020/03/05 08:19:05 by lulee             #+#    #+#             */
+/*   Updated: 2020/03/05 08:32:14 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static	int	part_is_mod(t_param *param)
+static	void	pf_atoi_(t_param *param)
 {
-	int	len;
+	int	n;
 
-	len = 0;
-	while (*param->dup_format == 'h' || *param->dup_format == 'l' ||
-		*param->dup_format == 'L')
+	n = 10;
+	while (*param->dup_format &&
+		*param->dup_format >= '0' && *param->dup_format <= '9')
 	{
-		len++;
+		param->width = (n * param->width) + (*param->dup_format - '0');
 		param->dup_format++;
 	}
-	return (len);
 }
 
-void		is_mod(t_param *param)
+void			is_width(t_param *param)
 {
-	int	len;
-
-	if (!(param->mod = (char *)malloc(sizeof(char) *
-					((len = part_is_mod(param)) + 1))))
-		ft_error_exit();
-	param->mod[len] = '\0';
-	len--;
-	while (len >= 0)
-	{
-		param->dup_format--;
-		param->mod[len] = *param->dup_format;
-		len--;
-	}
-	part_is_mod(param);
+	param->width = 0;
+	if (*param->dup_format >= '0' && *param->dup_format <= '9')
+		pf_atoi_(param);
+	while (*param->dup_format == '.' && *param->dup_format)
+		param->dup_format++;
 }

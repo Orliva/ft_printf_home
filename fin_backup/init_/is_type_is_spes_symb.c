@@ -6,7 +6,7 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 08:13:21 by lulee             #+#    #+#             */
-/*   Updated: 2020/03/12 21:37:49 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/12 21:20:25 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static	unsigned	int	proc_print(t_param *param, t_flags *flag)
 	len = 0;
 	if (flag->minus == 1)
 		flag->zero = 0;
+//	init_flag(param, flag);
 	tmp = flag->zero == 1 ? '0' : ' ';
 	if (flag->minus == 1)
 	{
@@ -61,8 +62,10 @@ int						is_spesific_symb(t_param *param, unsigned int *all_len)
 		return (1);
 	is_flag(param);
 	init_flag(param, &flag);
+//	printf("fl = %s\n", param->flag);
 	is_width(param);
 	is_presition(param);
+//	printf("zero = %u\n", flag.zero);
 	free((void *)&param->flag[0]);
 	*all_len += proc_print(param, &flag);
 	if (*param->dup_format)

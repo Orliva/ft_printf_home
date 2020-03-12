@@ -6,7 +6,7 @@
 /*   By: lulee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 19:19:59 by lulee             #+#    #+#             */
-/*   Updated: 2020/03/12 21:45:59 by lulee            ###   ########.fr       */
+/*   Updated: 2020/03/05 19:20:01 by lulee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void			is_width_f(t_pr *pr, t_param *param,
 	char	tmp;
 
 	tmp = flag->zero == 1 ? '0' : ' ';
-	if (flag->minus)
+	if (flag->minus)////&& param->width < param->presition)
 		pr->i++;
 	while (param->width > val)
 	{
@@ -27,9 +27,10 @@ void			is_width_f(t_pr *pr, t_param *param,
 	}
 }
 
-void			is_sign_space_f(t_pr *pr,
+void			is_sign_space_f(t_pr *pr, t_param *param,
 		t_flags *flag)
 {
+	param->len++;////////Удалить!!
 	if (flag->plus && pr->sign == '+')
 	{
 		pr->num[pr->i++] = '+';
@@ -81,12 +82,12 @@ void			right_pos_f(t_pr *pr, t_param *param,
 {
 	if (flag->zero)
 	{
-		is_sign_space_f(pr, flag);
+		is_sign_space_f(pr, param, flag);
 		is_width_f(pr, param, flag, val_);
 	}
 	else
 	{
 		is_width_f(pr, param, flag, val_);
-		is_sign_space_f(pr, flag);
+		is_sign_space_f(pr, param, flag);
 	}
 }
